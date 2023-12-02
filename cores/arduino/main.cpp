@@ -6,6 +6,9 @@
 
 #include "Arduino.h"
 
+void setup() __attribute__((weak));
+void loop () __attribute__((weak));
+
 int main(void) {
   setup();
 
