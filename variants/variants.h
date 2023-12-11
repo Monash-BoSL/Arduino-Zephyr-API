@@ -3,25 +3,28 @@
 #pragma once
 
 #ifdef CONFIG_BOARD_ARDUINO_NANO_33_BLE
-#include <arduino_nano_33_ble_pinmap.h>
+	#include <arduino_nano_33_ble_pinmap.h>
 #endif // CONFIG_BOARD_ARDUINO_NANO_33_BLE
 #ifdef CONFIG_BOARD_ARDUINO_NANO_33_BLE_SENSE
-#include <arduino_nano_33_ble_sense_pinmap.h>
+	#include <arduino_nano_33_ble_sense_pinmap.h>
 #endif // CONFIG_BOARD_ARDUINO_NANO_33_BLE_SENSE
 #ifdef CONFIG_BOARD_ARDUINO_NANO_33_IOT
-#include <arduino_nano_33_iot_pinmap.h>
+	#include <arduino_nano_33_iot_pinmap.h>
 #endif /* CONFIG_BOARD_ARDUINO_NANO_33_IOT */
 #ifdef CONFIG_BOARD_NRF52840DK_NRF52840
-#include "nrf52840dk_nrf52840_pinmap.h"
+	#include "nrf52840dk_nrf52840_pinmap.h"
 #endif /* CONFIG_BOARD_NRF52840DK_NRF52840 */
 #ifdef CONFIG_BOARD_NRF9160DK_NRF9160
-#include "nrf9160dk_nrf9160_pinmap.h"
-#endif /* CONFIG_BOARD_NRF9160DK_NRF9160 */
+	#include "nrf9160dk_nrf9160_pinmap.h"
+#endif // CONFIG_BOARD_NRF9160DK_NRF9160
+#ifdef CONFIG_BOARD_NRF9160DK_NRF9160_NS
+	#include "nrf9160dk_nrf9160_ns_pinmap.h"
+#endif // CONFIG_BOARD_NRF9160DK_NRF9160_NS
 #ifdef CONFIG_BOARD_ARDUINO_MKRZERO
-#include "arduino_mkrzero_pinmap.h"
+	#include "arduino_mkrzero_pinmap.h"
 #endif // CONFIG_BOARD_ARDUINO_MKRZERO
 #ifdef CONFIG_BOARD_CC3220SF_LAUNCHXL
-#include "cc3220sf_launchxl_pinmap.h"
+	#include "cc3220sf_launchxl_pinmap.h"
 #endif // CONFIG_BOARD_CC3220SF_LAUNCHXL
 
 #define DIGITAL_PIN_EXISTS(n, p, i, dev, num)                                                      \
