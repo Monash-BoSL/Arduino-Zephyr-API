@@ -16,7 +16,6 @@
 #endif /* CONFIG_BOARD_NRF52840DK_NRF52840 */
 #ifdef CONFIG_BOARD_NRF9160DK_NRF9160
 	#include "nrf9160dk_nrf9160_pinmap.h"
-	#include "nrf9160_zephyr_extra.h"
 #endif // CONFIG_BOARD_NRF9160DK_NRF9160
 #ifdef CONFIG_BOARD_NRF9160DK_NRF9160_NS
 	#include "nrf9160dk_nrf9160_ns_pinmap.h"
