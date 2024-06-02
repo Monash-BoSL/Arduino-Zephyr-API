@@ -7,8 +7,10 @@
 config ARDUINO_API
 	bool "ARDUINO_API"
 	imply CPLUSPLUS
+	imply ADC
 	imply GPIO
 	imply I2C
+	imply SPI
 	imply NEWLIB_LIBC_FLOAT_PRINTF
 	imply CBPRINTF_FP_SUPPORT
 	imply RING_BUFFER
@@ -16,11 +18,6 @@ config ARDUINO_API
 	default n
 
 if ARDUINO_API
-
-config QEMU_ICOUNT
-	bool "QEMU icount mode"
-	default n
-	depends on QEMU_TARGET
 
 config ARDUINO_API_SERIAL_BUFFER_SIZE
 	int "Buffer size for Arduino Serial API"
