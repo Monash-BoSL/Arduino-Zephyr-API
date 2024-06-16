@@ -58,6 +58,11 @@
 			<&arduino_adc 4>,
 			<&arduino_adc 5>;
 	};
+	aliases {
+		adc0 = &adc;
+		uart0 = &uart0;
+		uart1 = &uart1;
+	};
 };
 
 &adc {
@@ -69,7 +74,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN0>; /* P0.02 */
+		zephyr,input-positive = <NRF_SAADC_AIN1>; /* P0.14 */
 		zephyr,resolution = <10>;
 	};
 
@@ -78,7 +83,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN1>; /* P0.03 */
+		zephyr,input-positive = <NRF_SAADC_AIN2>; /* P0.15 */
 		zephyr,resolution = <10>;
 	};
 
@@ -87,7 +92,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN2>; /* P0.04 */
+		zephyr,input-positive = <NRF_SAADC_AIN3>; /* P0.16 */
 		zephyr,resolution = <10>;
 	};
 
@@ -96,7 +101,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN3>; /* P0.05 */
+		zephyr,input-positive = <NRF_SAADC_AIN4>; /* P0.17 */
 		zephyr,resolution = <10>;
 	};
 
@@ -105,7 +110,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN4>; /* P0.28 */
+		zephyr,input-positive = <NRF_SAADC_AIN5>; /* P0.18 */
 		zephyr,resolution = <10>;
 	};
 
@@ -114,25 +119,7 @@
 		zephyr,gain = "ADC_GAIN_1_6";
 		zephyr,reference = "ADC_REF_INTERNAL";
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN5>; /* P0.29 */
-		zephyr,resolution = <10>;
-	};
-
-	channel@6 {
-		reg = <6>;
-		zephyr,gain = "ADC_GAIN_1_6";
-		zephyr,reference = "ADC_REF_INTERNAL";
-		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN6>; /* P0.30 */
-		zephyr,resolution = <10>;
-	};
-
-	channel@7 {
-		reg = <7>;
-		zephyr,gain = "ADC_GAIN_1_6";
-		zephyr,reference = "ADC_REF_INTERNAL";
-		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
-		zephyr,input-positive = <NRF_SAADC_AIN7>; /* P0.31 */
+		zephyr,input-positive = <NRF_SAADC_AIN6>; /* P0.19 */
 		zephyr,resolution = <10>;
 	};
 };

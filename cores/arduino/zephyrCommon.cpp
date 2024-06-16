@@ -253,11 +253,7 @@ void analogReference(uint8_t mode)
 
 int analogRead(pin_size_t pinNumber)
 {
-  int err;
-  int16_t buf;
-  struct adc_sequence seq = { .buffer = &buf, .buffer_size = sizeof(buf) };
   size_t idx = analog_pin_index(pinNumber);
-
   if (idx >= ARRAY_SIZE(arduino_adc) ) {
     return -EINVAL;
   }
@@ -270,14 +266,26 @@ int analogRead(pin_size_t pinNumber)
     return -ENOTSUP;
   }
 
-  err = adc_channel_setup(arduino_adc[idx].dev, &arduino_adc[idx].channel_cfg);
+  int err = adc_channel_setup(arduino_adc[idx].dev, &arduino_adc[idx].channel_cfg);
   if (err < 0) {
     return err;
   }
 
-  seq.channels = BIT(arduino_adc[idx].channel_id);
-  seq.resolution = arduino_adc[idx].resolution;
-  seq.oversampling = arduino_adc[idx].oversampling;
+  int16_t buf;
+  struct adc_sequence seq = { 
+    .options = NULL,
+#if defined CONFIG_BOARD_NRF9160DK_NRF9160 || \
+    defined CONFIG_BOARD_NRF9160DK_NRF9160_NS
+    .channels = BIT(arduino_adc[idx].channel_id-1),
+#else
+    .channels = BIT(arduino_adc[idx].channel_id),
+#endif
+    .buffer = &buf, 
+    .buffer_size = sizeof(buf),
+    .resolution = arduino_adc[idx].resolution,
+    .oversampling = arduino_adc[idx].oversampling,
+    .calibrate = false
+  };
 
   err = adc_read(arduino_adc[idx].dev, &seq);
   if (err < 0) {
